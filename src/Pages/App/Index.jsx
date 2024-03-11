@@ -1,5 +1,5 @@
-import { useRoutes,BrowserRouter } from "react-router-dom";
-
+import { useRoutes, BrowserRouter } from "react-router-dom";
+import {ShopingCardProvider} from "../../Context/Index";
 import Home from "../Home/Index";
 import MyAcount from "../MyAcount/Index";
 import MyOrder from "../MyOrder/Index";
@@ -7,7 +7,6 @@ import NotFound from "../NotFound/Index";
 import SingIn from "../SingIn/Index";
 import "./App.css";
 import Navbar from "../../Components/Navbar";
-
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -18,23 +17,17 @@ const AppRoutes = () => {
     { path: "/*", element: <NotFound /> },
   ]);
   return routes;
-}
+};
 
-
-const App = ()=> {
-
-  
-
-
-
+const App = () => {
   return (
-    <BrowserRouter>
-      
-      <AppRoutes />
-      <Navbar />
-      
-    </BrowserRouter>
+    <ShopingCardProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </ShopingCardProvider>
   );
-}
+};
 
 export default App;
