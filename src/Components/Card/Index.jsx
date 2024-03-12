@@ -8,8 +8,21 @@ const Card = (data) => {
   const context = useContext(ShopingCardContext);
 
 
+  //utilizamos una funcion para mostrar el slider & setear el producto
+  //detail es data.data simplemente pasado como parametro
+  const showProducts = (detail) => {
+    context.openProductDetails();
+    context.setProductToShow(detail);
+  }
+
+
+
+
   return (
-    <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">
+    <div
+      className="bg-white cursor-pointer w-56 h-60 rounded-lg"
+      onClick={() => showProducts(data.data)}
+    >
       <figure className="relative mb-2 w-full h-4/5 ">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
           {data.data.category}
@@ -20,10 +33,10 @@ const Card = (data) => {
           alt="headphones"
         />
         <div
-          className="absolute top-0 right-0 flex justify-center items-center bg-amber-100 w-6 h-6 m-2 rounded-full p-1"
+          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 m-2 rounded-full p-1"
           onClick={() => context.setCount(context.count + 1)}
         >
-          <FaPlus className="text-lg " />
+          <FaPlus className=" " />
         </div>
       </figure>
       <p className="flex justify-between">
