@@ -15,7 +15,15 @@ const Card = (data) => {
     context.setProductToShow(detail);
   }
 
-
+  const addProductToCar = (event, detail) => {
+    event.stopPropagation()
+    context.setCount(context.count + 1)
+    context.setCarProducts([...context.carProducts, detail]);
+    context.closeProductDetails();
+    context.openIsCheckOutSideMenuOpen();
+    
+    
+  };
 
 
   return (
@@ -34,7 +42,7 @@ const Card = (data) => {
         />
         <div
           className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 m-2 rounded-full p-1"
-          onClick={() => context.setCount(context.count + 1)}
+          onClick={(event) => addProductToCar(event,data.data)}
         >
           <FaPlus className=" " />
         </div>
