@@ -24,6 +24,9 @@ export const ShopingCardProvider = ({ children }) => {
   //Shopping car . Add product to car
   const [carProducts, setCarProducts] = useState([]);
 
+  //Shopping Order . Add order 
+  const [order, setOrder] = useState([]);
+
   return (
     <ShopingCardContext.Provider
       value={{
@@ -40,7 +43,9 @@ export const ShopingCardProvider = ({ children }) => {
         setIsCheckOutSideMenuOpen,
         openIsCheckOutSideMenuOpen,
         closeIsCheckOutSideMenuOpen,
-        
+        order,
+        setOrder
+
       }}
     >
       {children}

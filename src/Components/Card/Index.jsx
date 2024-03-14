@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { ShopingCardContext } from '../../Context/Index';
 import { FaPlus } from "react-icons/fa";
+import { FcApproval } from "react-icons/fc";
 
 const Card = (data) => {
    
@@ -21,10 +22,34 @@ const Card = (data) => {
     context.setCarProducts([...context.carProducts, detail]);
     context.closeProductDetails();
     context.openIsCheckOutSideMenuOpen();
-    
-    
-  };
+    };
 
+  const renderIcon = (id) => {
+
+    const isInCard = context.carProducts.filter(product => product.id === id).length > 0;
+
+    if (isInCard) {
+      return (
+        <FcApproval className="text-black absolute top-0 right-0 flex justify-center items-center bg-black w-6 h-6 m-2 rounded-full " />
+      );
+    }
+    else
+    { 
+      return (
+        <div
+          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 m-2 rounded-full p-1"
+          onClick={(event) => addProductToCar(event, data.data)}
+        >
+          <FaPlus className=" " />
+        </div>
+      );
+    }
+  
+  
+  
+  }  
+  
+  
 
   return (
     <div
@@ -40,12 +65,8 @@ const Card = (data) => {
           src={data.data.image}
           alt="headphones"
         />
-        <div
-          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 m-2 rounded-full p-1"
-          onClick={(event) => addProductToCar(event,data.data)}
-        >
-          <FaPlus className=" " />
-        </div>
+
+        {renderIcon(data.data.id)}
       </figure>
       <p className="flex justify-between">
         <span className="text-sm font-light truncate mr-2">
