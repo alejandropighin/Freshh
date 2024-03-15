@@ -1,7 +1,8 @@
 import React from "react";
 import "./styles.css";
-import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";
+import { XMarkIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 import { ShopingCardContext } from "../../Context/Index";
 import OrderCard from "../OrderCard/Index"
 import { totalPrice } from "../../utils";
@@ -23,7 +24,7 @@ const CheckOutSideMenu = () => {
 
     }
 
-    context.setOrder(...context.order, orderToAdd);
+    context.setOrder([...context.order, orderToAdd]);
     context.setCarProducts([]);
   }
 
@@ -64,12 +65,14 @@ const CheckOutSideMenu = () => {
             ${totalPrice(context.carProducts)}
           </span>
         </p>
-        <button
-          onClick={() => handleCheckOut()}
-          className="w-full bg-black text-white py-3 rounded-lg"
-        >
-          Check Out
-        </button>
+        <Link to='/myorder/last'>
+          <button
+            onClick={() => handleCheckOut()}
+            className="w-full bg-black text-white py-3 rounded-lg"
+          >
+            Check Out
+          </button>
+        </Link>
       </div>
     </aside>
   );

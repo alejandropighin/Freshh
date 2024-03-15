@@ -3,6 +3,7 @@ import {ShopingCardProvider} from "../../Context/Index";
 import Home from "../Home/Index";
 import MyAcount from "../MyAcount/Index";
 import MyOrder from "../MyOrder/Index";
+import MyOrders from "../MyOrders/Index";
 import NotFound from "../NotFound/Index";
 import SingIn from "../SingIn/Index";
 import "./App.css";
@@ -13,7 +14,10 @@ const AppRoutes = () => {
   let routes = useRoutes([
     { path: "/", element: <Home /> },
     { path: "/MyAcount", element: <MyAcount /> },
+
     { path: "/MyOrder", element: <MyOrder /> },
+    { path: "/MyOrders", element: < MyOrders /> },
+    { path: "/MyOrder/last", element: <MyOrder /> },
     { path: "/SingIn", element: <SingIn /> },
     { path: "/*", element: <NotFound /> },
   ]);

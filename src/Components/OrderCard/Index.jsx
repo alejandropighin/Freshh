@@ -3,13 +3,21 @@ import { useContext } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { ShopingCardContext } from "../../Context/Index";
 
+
 const OrderCard = props => {
 
      const context = useContext(ShopingCardContext);
 
     const { id,title, imageUrl, price, handleDelete } = props;
 
+  let renderXmarkIcon 
+  if (handleDelete) {
+    renderXmarkIcon = <XMarkIcon onClick={() => handleDelete(id)} className="h-6 w-6 text-black" />
+  }
 
+
+
+  
 
 
   return (
@@ -26,11 +34,9 @@ const OrderCard = props => {
       </div>
       <div className="flex items-center gap-2">
         <p className="text-lg font-medium ">{price}</p>
-        <XMarkIcon
-          onClick={() => handleDelete(id)}
-          className="h-6 w-6 text-black"
-        />
+        {renderXmarkIcon}
       </div>
+      
     </div>
   );
 }

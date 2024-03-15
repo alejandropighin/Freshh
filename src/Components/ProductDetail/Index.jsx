@@ -12,7 +12,7 @@ const ProductDetail = () => {
 
 const context = useContext(ShopingCardContext);
 
-  console.log('product to show', context.productToShow);
+  
   
  
 

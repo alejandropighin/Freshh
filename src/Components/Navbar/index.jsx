@@ -70,10 +70,10 @@ const Navbar = () => {
         <li className="text-black/60">alejandroPighin2016@gmail.com</li>
         <li>
           <NavLink
-            to="/MyOrder"
+            to="/MyOrders"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            MyOrder
+            MyOrders
           </NavLink>
         </li>
         <li>
