@@ -20,6 +20,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/all"
+            onClick={() => context.setSearchByCategory()}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             All
@@ -27,36 +28,32 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/clothes"
+            to="/clothing"
+            onClick={() => context.setSearchByCategory("clothing")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Clothes
+            men's clothing
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/jewelery"
+            onClick={() => context.setSearchByCategory("jewelery")}
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            jewelery
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/electronics"
+            onClick={() => context.setSearchByCategory("electronics")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Electronics
+            electronics
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/furnitures"
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Furnitures
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/toys"
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Toys
-          </NavLink>
-        </li>
+
         <li>
           <NavLink
             to="/oters"
@@ -93,8 +90,8 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="flex gap-2">
-          <FaOpencart className='text-lg'/>
-          <div>{context.count}</div>
+          <FaOpencart className="text-lg" />
+          <div>{context.carProducts.length}</div>
         </li>
       </ul>
     </nav>

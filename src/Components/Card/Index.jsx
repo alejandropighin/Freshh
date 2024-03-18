@@ -30,7 +30,7 @@ const Card = (data) => {
 
     if (isInCard) {
       return (
-        <FcApproval className="text-black absolute top-0 right-0 flex justify-center items-center bg-black w-6 h-6 m-2 rounded-full " />
+        <FcApproval className=" absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 m-2 rounded-full " />
       );
     }
     else
@@ -40,7 +40,7 @@ const Card = (data) => {
           className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 m-2 rounded-full p-1"
           onClick={(event) => addProductToCar(event, data.data)}
         >
-          <FaPlus className=" " />
+          <FaPlus className="text-sm " />
         </div>
       );
     }
